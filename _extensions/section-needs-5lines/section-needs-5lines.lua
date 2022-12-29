@@ -1,4 +1,4 @@
--- Reformat all heading text 
+-- Reformat all heading text
 -- function Header(el)
 --   el.content = pandoc.Emph(el.content)
 --   return el
@@ -14,7 +14,7 @@ if FORMAT:match 'latex' then
       }
     else
       return {
-        pandoc.RawInline('latex', '\\par\\needspace{5\\baselineskip}'),
+        pandoc.RawInline('latex', '\\needspace{5\\baselineskip}'),
         elem
       }
     end
