@@ -1,0 +1,9 @@
+---
+title: "Section-needs-5lines Example"
+filters:
+  - section-needs-5lines
+---
+
+## Heading
+
+This filter adds formatting to heading text.
