@@ -1,22 +1,22 @@
--- Reformat all heading text
--- function Header(el)
---   el.content = pandoc.Emph(el.content)
---   return el
--- end
-
-
 if FORMAT:match 'latex' then
-  function Header(elem)
-    if (elem.level == 1) then
-      return {
-        pandoc.RawInline('latex', '\\pagebreak'),
-        elem
+   function Meta (meta)
+      meta["header-includes"] = {
+         pandoc.RawInline('latex', '\\usepackage{needspace}'),
       }
-    else
-      return {
-        pandoc.RawInline('latex', '\\needspace{5\\baselineskip}'),
-        elem
-      }
-    end
-  end
+      return meta
+   end
+
+   function Header(elem)
+      if (elem.level == 1) then
+         return {
+            pandoc.RawInline('latex', '\\pagebreak'),
+            elem
+         }
+      else
+         return {
+            pandoc.RawInline('latex', '\\needspace{5\\baselineskip}'),
+            elem
+         }
+      end
+   end
 end
