@@ -1,8 +1,10 @@
 if FORMAT:match 'latex' then
    function Meta (meta)
-      meta["header-includes"] = {
-         pandoc.RawInline('latex', '\\usepackage{needspace}'),
-      }
+      table.insert(
+        meta["header-includes"],
+        pandoc.RawBlock('latex', '\\usepackage{needspace}')
+      )
+      -- quarto.utils.dump(meta)
       return meta
    end
 
